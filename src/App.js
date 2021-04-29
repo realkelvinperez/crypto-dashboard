@@ -1,6 +1,8 @@
 import {useEffect, useState} from 'react'
 import { Global, css } from "@emotion/react";
 import VConsole from "vconsole";
+import Web3 from "web3";
+// import Web3Modal from "web3modal";
 
 import {
     Box,
@@ -14,19 +16,27 @@ function App() {
     const [address, setAddress] = useState('')
     // eslint-disable-next-line no-unused-vars
     const [accounts, setAccounts] = useState('')
+    const [chainID, setChainID] = useState('')
+    const [web3, setWeb3] = useState(null)
 
     const handleClick = async () => {
         if(window?.ethereum){
-            const accounts = await window.ethereum.send('eth_requestAccounts')
-            setAccounts(accounts)
-            setAddress(accounts.result[0])
+            setWeb3(new Web3(window.ethereum))
+            setChainID(await web3.eth.chainId)
+            setAccounts(await web3.eth.getAccounts())
+            const address = await web3.eth.getAccounts()
+            setAddress(address[0])
             console.log(accounts)
         }
         else alert('No Ethereum Provider')
     }
 
     useEffect(() => {
-        if(window) new VConsole();
+        if(window) {
+            console.log({chainID, web3, accounts})
+            if(!VConsole) new VConsole()
+        }
+
     })
 
   return (
