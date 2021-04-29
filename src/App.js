@@ -12,6 +12,7 @@ import {
 
 function App() {
     const [address, setAddress] = useState('')
+    // eslint-disable-next-line no-unused-vars
     const [accounts, setAccounts] = useState('')
 
     const handleClick = async () => {
@@ -19,6 +20,7 @@ function App() {
             const accounts = await window.ethereum.send('eth_requestAccounts')
             setAccounts(accounts)
             setAddress(accounts.result[0])
+            console.log(accounts)
         }
         else alert('No Ethereum Provider')
     }
