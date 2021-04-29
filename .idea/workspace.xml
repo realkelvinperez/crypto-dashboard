@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cc427907-9ccf-4232-8200-01c43e67e4e1" name="Default Changelist" comment="updating connection to web3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +50,7 @@
       <workItem from="1619667885383" duration="4731000" />
       <workItem from="1619677600448" duration="6000" />
       <workItem from="1619679162020" duration="3423000" />
-      <workItem from="1619704793673" duration="4311000" />
+      <workItem from="1619704793673" duration="7422000" />
     </task>
     <task id="LOCAL-00001" summary="updating connection to web3">
       <created>1619681513299</created>

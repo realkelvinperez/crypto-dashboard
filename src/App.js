@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import { Global, css } from "@emotion/react";
 import VConsole from "vconsole";
 import Web3 from "web3";
-import axios from "axios"
+// import axios from "axios"
 
 // 56 - BSC Main Net
 // 97 - BSC Test Net
@@ -22,30 +22,35 @@ function App() {
     const [chainID, setChainID] = useState(null)
     const [balance, setBalance] = useState(0)
     const [web3, setWeb3] = useState(null)
-    const [isLoading, setLoading] = useState(true)
 
-    const BSC_APIKEY = 'C8DVY3VCSKTFFBXTD11K712YP9T3GYT4PX'
+    // const [isLoading, setLoading] = useState(true)
+    // const BSC_APIKEY = 'C8DVY3VCSKTFFBXTD11K712YP9T3GYT4PX'
+    // const apiUrl = `https://api.bscscan.com/api?module=account&action=balance&address=${address}&tag=latest&apikey=${BSC_APIKEY}`
+    // const testnetApiUrl = `https://api-testnet.bscscan.com/api?module=account&action=balance&address=${address}&tag=latest&apikey=${BSC_APIKEY}`
+    // axios.get(testnetApiUrl).then(async ({ data }) => {
+    //     console.log({data})
+    // })
+    // const userBalance = web3.utils.fromWei(ethBalance)
 
     const handleClick = async () => {
         if(window?.ethereum){
-            const address = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            setChainID(await web3.eth.getChainId())
-            setAccounts(await web3.eth.getAccounts())
-            setAddress(address[0])
-            console.log({accounts, address})
-            // const apiUrl = `https://api.bscscan.com/api?module=account&action=balance&address=${address}&tag=latest&apikey=${BSC_APIKEY}`
-            const testnetApiUrl = `https://api-testnet.bscscan.com/api?module=account&action=balance&address=${address}&tag=latest&apikey=${BSC_APIKEY}`
-            axios.get(testnetApiUrl).then(({ data }) => {
-                setBalance(data.result)
-                console.log(data.result)
-            })
+            const { eth } = web3
+            const address = await eth.getCoinbase(); // coinbase gets the users address
+            setChainID(await eth.getChainId())
+            setAccounts(await eth.getAccounts())
+            setAddress(address)
+            const ethBalance = await eth.getBalance(address) // get balance gets the users current balance
+            debugger;
+            setBalance(parseFloat(web3.utils.fromWei(ethBalance)).toFixed(2))
+            console.log({ethBalance})
         }
         else alert('No Ethereum Provider')
     }
 
     useEffect(() => {
-        if(typeof window !== "undefined") {
+        if(typeof window?.ethereum !== "undefined") {
             setWeb3(new Web3(window.ethereum))
+            console.log('Set web3')
             if(typeof VConsole !== "undefined") new VConsole()
             if (typeof window.ethereum !== 'undefined') {
                 console.log('MetaMask is installed!');
