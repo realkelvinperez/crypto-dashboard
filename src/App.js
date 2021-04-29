@@ -4,6 +4,9 @@ import VConsole from "vconsole";
 import Web3 from "web3";
 // import Web3Modal from "web3modal";
 
+// 56 - BSC Main Net
+// 97 - BSC Test Net
+
 import {
     Box,
     Button,
@@ -13,18 +16,17 @@ import {
 } from "@chakra-ui/react";
 
 function App() {
-    const [address, setAddress] = useState('')
-    // eslint-disable-next-line no-unused-vars
-    const [accounts, setAccounts] = useState('')
-    const [chainID, setChainID] = useState('')
+    const [address, setAddress] = useState(null)
+    const [accounts, setAccounts] = useState(null)
+    const [chainID, setChainID] = useState(null)
+    // const [balance, setBalance] = useState(null)
     const [web3, setWeb3] = useState(null)
 
     const handleClick = async () => {
         if(window?.ethereum){
-            setWeb3(new Web3(window.ethereum))
-            setChainID(await web3.eth.chainId)
+            const address = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            setChainID(await web3.eth.getChainId())
             setAccounts(await web3.eth.getAccounts())
-            const address = await web3.eth.getAccounts()
             setAddress(address[0])
             console.log(accounts)
         }
@@ -32,9 +34,12 @@ function App() {
     }
 
     useEffect(() => {
-        if(window) {
-            console.log({chainID, web3, accounts})
-            if(!VConsole) new VConsole()
+        if(typeof window !== "undefined") {
+            setWeb3(new Web3(window.ethereum))
+            if(typeof VConsole !== "undefined") new VConsole()
+            if (typeof window.ethereum !== 'undefined') {
+                console.log('MetaMask is installed!');
+            }
         }
 
     },[])
@@ -66,6 +71,10 @@ function App() {
 
                   <Heading as="h3" size="sm">Account Address</Heading>
                   <Box>{address}</Box>
+                  <Heading as="h3" size="sm">Chain Id</Heading>
+                  <Box>{chainID}</Box>
+                  {/*<Heading as="h3" size="sm">Balance</Heading>*/}
+                  {/*<Box>{balance}</Box>*/}
               </Flex>
           </Container>
       </>
