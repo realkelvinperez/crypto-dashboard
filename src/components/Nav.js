@@ -6,15 +6,15 @@ const NavBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 2rem;
+  padding: 0 1rem;
 `
 
-export default function Nav(props) {
+export default function Nav() {
     return (
         <nav>
             <NavBar>
                 <Box>
-                    <Heading>ViViFi</Heading>
+                    <Heading size='md'>ViViFi.Capital</Heading>
                 </Box>
                 <User />
             </NavBar>

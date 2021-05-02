@@ -1,28 +1,16 @@
-import {useEffect, useState} from 'react'
+import { useEffect } from 'react'
 import { Global, css } from "@emotion/react";
 import VConsole from "vconsole";
-import Web3 from "web3";
 import Nav from "./components/Nav";
-import { useDispatch } from 'react-redux'
-import { updateProvider } from "./redux/actions/user.actions";
+import { useSelector } from 'react-redux'
+import { Container } from "@chakra-ui/react";
 
-import {
-    Container,
-} from "@chakra-ui/react";
+const selectAddress = state => state.user.address
 
 export default function App() {
-    const dispatch= useDispatch()
-
+    const address = useSelector(selectAddress)
     useEffect(() => {
-        if(typeof window?.ethereum !== "undefined") {
-            const provider = new Web3(window.ethereum)
-            dispatch(updateProvider(provider))
-            console.log('Set web3', { provider })
-            if(typeof VConsole !== "undefined") new VConsole()
-            if (typeof window.ethereum !== 'undefined') {
-                console.log('MetaMask is installed!');
-            }
-        }
+        if(typeof VConsole !== "undefined") new VConsole()
     },[])
 
   return (
@@ -46,7 +34,7 @@ export default function App() {
               <Container as="main" css={css`
                 height: 100vh;
               `}>
-                  Center
+                  { address ? address : 'Connect wallet to see address'}
               </Container>
       </>
   );
