@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateProvider } from "../redux/actions/user.actions";
 import { ethers } from "ethers";
 import web3 from 'web3'
+import { updateAddress, updateChainId, updateBalance, updateSigner } from "../redux/actions/user.actions";
 
 const Wrap = styled.div`
   display: flex;
@@ -21,50 +22,54 @@ export default function User() {
     const address = useSelector(selectAddress)
 
     const handleClick = async () => {
-        // debugger;
         if(typeof window?.ethereum !== "undefined") {
-            const { utils } = web3
             setIsLoading(true)
+
+            const { utils } = web3
+
             await window.ethereum.request({method: "eth_requestAccounts"})
+
             const provider = new ethers.providers.Web3Provider(window.ethereum)
-            const signer = provider.getSigner(0)
             dispatch(updateProvider(provider))
-            console.log('Set web3', { provider })
+
+            const signer = provider.getSigner(0)
+            dispatch(updateSigner(signer))
+
+            const userChainId = await signer.getChainId()
+            dispatch(updateChainId(userChainId))
+
             const signerBalance = await signer.getBalance()
             const floatBalance = parseFloat(utils.fromWei(signerBalance.toString())).toFixed(2)
+            dispatch(updateBalance(floatBalance))
+
             const signerAddress = await signer.getAddress()
-            // console.log(floatBalance, signerAddress)
+            dispatch(updateAddress(signerAddress))
+
+            console.log({signerAddress, floatBalance})
             setIsLoading(false)
         }
 
-        // const address = await signer.getAddress();
-        // dispatch(updateAddress(address[0]))
-        // const userChainId = await signer.getChainId()
-        // dispatch(updateChainId(userChainId))
-        // const ethBalance = await signer.getBalance()
-        // const formatBalance = parseFloat(provider.utils.fromWei(ethBalance)).toFixed(2)
-        // dispatch(updateBalance(formatBalance))
-        // setIsLoading(false)
-
         else alert('No Ethereum Provider')
+    }
+
+    const truckAddress = (signerAddress) => {
+        const first4 = signerAddress.substr(0, 4)
+        const last4 = signerAddress.substr(-4, 4)
+        return `${first4}...${last4}`
     }
 
     return (
         <Wrap>
             <Button isLoading={isLoading} borderRadius="4rem" onClick={handleClick}>
-                {!address ? 'Connect Wallet' : 'Wallet Connected'}
+                {!address ? 'Connect Wallet' : truckAddress(address)}
             </Button>
         </Wrap>
     );
 }
 
-// const [tokenTx, setTokenTx] = useState([])
-
 // const BSC_APIKEY = 'C8DVY3VCSKTFFBXTD11K712YP9T3GYT4PX'
 // const apiUrl = `https://api.bscscan.com/api?module=account&action=balance&address=${address}&tag=latest&apikey=${BSC_APIKEY}` // account balance
 // const testnetApiUrl = `https://api-testnet.bscscan.com/api?module=account&action=balance&address=${address}&tag=latest&apikey=${BSC_APIKEY}` // test net account balance
-
-// if(typeof window?.ethereum !== "undefined" && typeof address === 'undefined')
 
 // const testAddress = '0x72750c3036aaad52fc4c9cf0a4fff36fa11db372'
 // const addressTokens = `https://api.bscscan.com/api?module=account&action=tokentx&address=${testAddress}&sort=desc&apikey=${BSC_APIKEY}`
