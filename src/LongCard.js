@@ -18,16 +18,15 @@ const UnderLine = styled(Box)`
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    //background: #AB2525;
     ${props => props.color && css`
         background: ${props.color}
     `}
 `
 
-const Triangle = styled(Box)`
-      ${props => !props.isPositive && css`
-        transform: rotate(180deg);
-      `}
+const Triangle = styled.div`
+  ${props => !props.isPositive && css`
+    transform: rotate(180deg);
+  `}
 `
 
 export default function LongCard({name, ticker, percentChange, price, color, isPositive}) {
@@ -50,7 +49,7 @@ export default function LongCard({name, ticker, percentChange, price, color, isP
                     </Flex>
                     <Box>
                         <Text color="#737373" fontSize="md" align="right">
-                            { price || "$57,410.00" }
+                            { price && price }
                         </Text>
                     </Box>
                 </Flex>

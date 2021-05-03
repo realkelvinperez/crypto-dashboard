@@ -9,6 +9,7 @@ import TopTen from "./components/TopTen";
 export default function App() {
 
     useEffect(() => {
+        // Only show in development mode
         if(typeof VConsole !== "undefined") new VConsole()
     },[])
 
