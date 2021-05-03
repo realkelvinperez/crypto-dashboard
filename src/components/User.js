@@ -2,9 +2,9 @@ import { Button } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { useSelector, useDispatch } from 'react-redux'
-import {updateProvider} from "../redux/actions/user.actions";
-import {ethers} from "ethers";
-import { utils } from 'web3'
+import { updateProvider } from "../redux/actions/user.actions";
+import { ethers } from "ethers";
+import web3 from 'web3'
 
 const Wrap = styled.div`
   display: flex;
@@ -23,6 +23,7 @@ export default function User() {
     const handleClick = async () => {
         // debugger;
         if(typeof window?.ethereum !== "undefined") {
+            const { utils } = web3
             setIsLoading(true)
             await window.ethereum.request({method: "eth_requestAccounts"})
             const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -32,7 +33,7 @@ export default function User() {
             const signerBalance = await signer.getBalance()
             const floatBalance = parseFloat(utils.fromWei(signerBalance.toString())).toFixed(2)
             const signerAddress = await signer.getAddress()
-            console.log(floatBalance, signerAddress)
+            // console.log(floatBalance, signerAddress)
             setIsLoading(false)
         }
 

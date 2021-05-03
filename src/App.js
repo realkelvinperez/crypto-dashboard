@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
 import { Global, css } from "@emotion/react";
 import VConsole from "vconsole";
-import Nav from "./components/Nav";
+import Header from "./components/Nav";
 import { useSelector } from 'react-redux'
 import { Container } from "@chakra-ui/react";
 
-const selectAddress = state => state.user.address
+const selectAddress = state => state.user.address;
 
 export default function App() {
+
     const address = useSelector(selectAddress)
+
     useEffect(() => {
         if(typeof VConsole !== "undefined") new VConsole()
     },[])
@@ -30,12 +32,18 @@ export default function App() {
                 `
               }
           />
-              <Nav />
-              <Container as="main" css={css`
-                height: 100vh;
-              `}>
-                  { address ? address : 'Connect wallet to see address'}
-              </Container>
+
+          <Header />
+
+          <Container as="main">
+
+              { address ? address : 'Connect wallet to see address' }
+
+          </Container>
+
+
       </>
   );
 }
+
+
