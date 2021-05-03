@@ -1,47 +1,61 @@
 import { Box, Heading, Text, Flex, Spacer } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { BsFillTriangleFill } from "react-icons/bs"
+import { css } from "@emotion/react";
 
 const Wrapper = styled(Box)`
   background: #EAF0F6;
   border-radius: 60px;
   padding: 1rem .5rem;
   position: relative;
+  margin-bottom: 1.5rem;
 `
 
 const UnderLine = styled(Box)`
     width: 75%;
     height: 5px;
-    background: #AB2525;
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    //background: #AB2525;
+    ${props => props.color && css`
+        background: ${props.color}
+    `}
 `
 
+const Triangle = styled(Box)`
+      ${props => !props.isPositive && css`
+        transform: rotate(180deg);
+      `}
+`
 
-export default function LongCard({name, ticker, percentChange, price}) {
+export default function LongCard({name, ticker, percentChange, price, color, isPositive}) {
     return (
         <Wrapper>
             <Flex paddingX={10}>
                 <Box>
-                    <Heading size="lg">Bitcoin</Heading>
-                    <Text fontSize="md" color="#737373">BTC</Text>
+                    <Heading size="lg">{ name && name }</Heading>
+                    <Text fontSize="md" color="#737373">{ticker && ticker }</Text>
                 </Box>
                 <Spacer />
                 <Flex direction="column">
                     <Flex align="center" justify="center">
-                        <BsFillTriangleFill color="#AB2525" />
-                        <Heading color="#AB2525" align="right" size="lg" marginLeft={2}>
-                            -1.43%
+                        <Triangle isPositive={isPositive}>
+                            <BsFillTriangleFill color={color} />
+                        </Triangle>
+                        <Heading color={color} align="right" size="lg" marginLeft={2}>
+                            {percentChange && percentChange + "%"}
                         </Heading>
                     </Flex>
                     <Box>
-                        <Text color="#737373" fontSize="md" align="right">$57,410.00</Text>
+                        <Text color="#737373" fontSize="md" align="right">
+                            { price || "$57,410.00" }
+                        </Text>
                     </Box>
                 </Flex>
             </Flex>
-            <UnderLine />
+            <UnderLine color={color} />
         </Wrapper>
     );
 }

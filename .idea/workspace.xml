@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc427907-9ccf-4232-8200-01c43e67e4e1" name="Default Changelist" comment="updating connection to web3">
-      <change afterPath="$PROJECT_DIR$/src/components/Icons/HomeIcon.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TopTen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LongCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LongCard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FooterNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FooterNav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/appContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LongCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopTen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopTen.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +23,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1rpL2kOdeCyUBmqcstqYvazCKN3" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -60,7 +59,7 @@
       <workItem from="1619679162020" duration="3423000" />
       <workItem from="1619704793673" duration="12438000" />
       <workItem from="1619920712915" duration="15820000" />
-      <workItem from="1619992023738" duration="11310000" />
+      <workItem from="1619992023738" duration="16822000" />
     </task>
     <task id="LOCAL-00001" summary="updating connection to web3">
       <created>1619681513299</created>

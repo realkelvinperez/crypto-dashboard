@@ -14,7 +14,12 @@ export default function Header() {
     return (
         <HeaderWrap>
             <Box>
-                <Heading size='md'>ViViFi.Capital</Heading>
+                <Heading
+                    size='md'
+                    color="#21A142"
+                >
+                    ViViFi.Capital
+                </Heading>
             </Box>
             <User />
         </HeaderWrap>
