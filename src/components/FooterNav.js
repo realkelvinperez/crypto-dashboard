@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { Box } from "@chakra-ui/react";
 import { FiHome, FiSearch, FiSettings, FiBell } from "react-icons/fi";
+import {Link} from 'react-router-dom'
 
 const FooterWrap = styled.div`
   padding: 1rem;
@@ -24,10 +25,18 @@ export default function FooterNav() {
     return (
         <FooterWrap>
             <IconsWrap>
-                <FiHome style={{cursor: "pointer"}} size={fontSize} />
-                <FiSearch style={{cursor: "pointer"}} size={fontSize} />
-                <FiBell style={{cursor: "pointer"}}  size={fontSize} />
-                <FiSettings style={{cursor: "pointer"}}  size={fontSize} />
+                <Link to="/">
+                    <FiHome style={{cursor: "pointer"}} size={fontSize} />
+                </Link>
+                <Link to="/search">
+                    <FiSearch style={{cursor: "pointer"}} size={fontSize} />
+                </Link>
+                <Link to="/alerts">
+                    <FiBell style={{cursor: "pointer"}}  size={fontSize} />
+                </Link>
+                <Link to="settings">
+                    <FiSettings style={{cursor: "pointer"}}  size={fontSize} />
+                </Link>
             </IconsWrap>
         </FooterWrap>
     );
