@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from "@chakra-ui/react"
@@ -8,12 +7,13 @@ import { Provider } from "react-redux";
 import rootReducer from "./redux/reducers";
 import { createStore, applyMiddleware } from "redux";
 import {logger} from "redux-logger/src";
+import theme from "./theme";
 
 const store = createStore(rootReducer, applyMiddleware(logger))
 
 ReactDOM.render(
   <React.StrictMode>
-      <ChakraProvider>
+      <ChakraProvider theme={theme} resetCSS>
           <Provider store={store}>
               <App />
           </Provider>

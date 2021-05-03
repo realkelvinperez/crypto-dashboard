@@ -17,7 +17,7 @@ const IconsWrap = styled(Box)`
   background: #EAF0F6;
   padding: 1rem;
   border-radius: 60px;
-  box-shadow: 0px 0px 20px 0px #bcbaba;
+  box-shadow: 0 0 20px 0 #bcbaba;
 `
 const fontSize = 30
 

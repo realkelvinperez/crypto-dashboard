@@ -2,16 +2,38 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc427907-9ccf-4232-8200-01c43e67e4e1" name="Default Changelist" comment="updating connection to web3">
+      <change afterPath="$PROJECT_DIR$/src/components/Alerts.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Settings.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/theme.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LongCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LongCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/HomeIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/NotificationsIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/SearchIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/SettingsIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/UserAvatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/UserAvatar.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FooterNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FooterNav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Icons/HomeIcon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TopTen.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopTen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,6 +68,11 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,7 +86,7 @@
       <workItem from="1619679162020" duration="3423000" />
       <workItem from="1619704793673" duration="12438000" />
       <workItem from="1619920712915" duration="15820000" />
-      <workItem from="1619992023738" duration="20212000" />
+      <workItem from="1619992023738" duration="21308000" />
     </task>
     <task id="LOCAL-00001" summary="updating connection to web3">
       <created>1619681513299</created>

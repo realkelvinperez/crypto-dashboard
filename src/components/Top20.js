@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import LongCard from "../LongCard";
+import LongCard from "./LongCard";
 import axios from "axios";
 import { Box, Heading } from "@chakra-ui/react";
 import styled from "@emotion/styled";
@@ -8,7 +8,7 @@ const Wrapper = styled(Box)`
   padding-bottom: 5rem
 `
 
-export default function TopTen() {
+export default function Top20() {
     const [top10, setTop10] = useState([])
 
     const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false`
@@ -16,6 +16,7 @@ export default function TopTen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
            const res = await axios(url)
+            // TODO: save top10 in redux to cache and avoid multiple ajax calls
             setTop10(res.data)
             console.log({res})
     }, [url])
@@ -24,7 +25,7 @@ export default function TopTen() {
         <Wrapper>
             <Heading
                 marginBottom="1rem"
-                marginLeft="1rem"
+                marginLeft="0.5rem"
             >
                 Top 20 Cryptocurrencies
             </Heading>
