@@ -2,19 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc427907-9ccf-4232-8200-01c43e67e4e1" name="Default Changelist" comment="updating connection to web3">
-      <change afterPath="$PROJECT_DIR$/src/components/Toggle.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Alerts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Alerts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/FooterNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FooterNav.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LongCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LongCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Nav.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Nav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Top20.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Top20.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/actions/user.actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/actions/user.actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/reducers/user.reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/reducers/user.reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/types/user.types.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/redux/types/user.types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +73,7 @@
       <workItem from="1619679162020" duration="3423000" />
       <workItem from="1619704793673" duration="12438000" />
       <workItem from="1619920712915" duration="15820000" />
-      <workItem from="1619992023738" duration="27851000" />
+      <workItem from="1619992023738" duration="28809000" />
     </task>
     <task id="LOCAL-00001" summary="updating connection to web3">
       <created>1619681513299</created>

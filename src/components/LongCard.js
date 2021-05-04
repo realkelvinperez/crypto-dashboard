@@ -1,8 +1,7 @@
-import { Box, Heading, Text, Flex, Spacer } from "@chakra-ui/react";
+import {Box, Heading, Text, Flex, Spacer, useColorMode} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { BsFillTriangleFill } from "react-icons/bs"
 import { css } from "@emotion/react";
-import { useSelector } from "react-redux";
 
 const Wrapper = styled.div`
   background: #EAF0F6;
@@ -36,13 +35,11 @@ const Triangle = styled.div`
   `}
 `
 
-const selectUserTheme = state => state.user.theme;
 
 export default function LongCard({name, ticker, percentChange, price, color, isPositive}) {
-    const colorTheme = useSelector(selectUserTheme)
-
+    const { colorMode } = useColorMode()
     return (
-        <Wrapper themeMode={colorTheme}>
+        <Wrapper themeMode={colorMode}>
             <Flex paddingX={10}>
                 <Box>
                     <Heading size="lg">{ name && name }</Heading>

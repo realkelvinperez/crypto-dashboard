@@ -39,6 +39,7 @@ export default function App() {
                      .vc-switch{
                       right: 20px !important;
                       bottom: 130px !important;
+                       cursor: pointer;
                      }
                 `
               }

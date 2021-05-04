@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { Home, Search, Settings, Bell } from "@emotion-icons/feather";
 import { Link } from 'react-router-dom'
-import { useSelector } from "react-redux";
 import { EmotionIconBase } from '@emotion-icons/emotion-icon'
+import {useColorMode} from "@chakra-ui/react";
 
 const FooterWrap = styled.div`
   padding: 1rem;
@@ -15,16 +15,16 @@ const FooterWrap = styled.div`
 const IconsWrap = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 1rem;
   border-radius: 60px;
   ${props => props.themeMode === 'light' && css`
     background: #EDF2F7;
-    box-shadow: 0 0 10px 0 #A0AEC0;
+    box-shadow: 0 0 5px 0 #c1c4c7;
   `}
   ${props => props.themeMode === 'dark' && css`
     background: #2D3748;
-    box-shadow: 0 0 13px 0 #A0AEC0;
+    box-shadow: 0 0 5px 0 #5b6f90;
   `}
   & a ${EmotionIconBase} {
     cursor: pointer;
@@ -32,14 +32,12 @@ const IconsWrap = styled.div`
   }
 `
 
-const selectUserTheme = state => state.user.theme;
-
 export default function FooterNav() {
-    const theme = useSelector(selectUserTheme)
-    const fontSize = 35;
+    const { colorMode } = useColorMode()
+    const fontSize = 30;
     return (
         <FooterWrap>
-                <IconsWrap themeMode={theme}>
+                <IconsWrap themeMode={colorMode}>
                     <Link to="/">
                         <Home size={fontSize}/>
                     </Link>
