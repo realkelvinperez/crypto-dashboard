@@ -2,13 +2,20 @@ import { Box, Heading, Text, Flex, Spacer } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { BsFillTriangleFill } from "react-icons/bs"
 import { css } from "@emotion/react";
+import { useSelector } from "react-redux";
 
-const Wrapper = styled(Box)`
+const Wrapper = styled.div`
   background: #EAF0F6;
   border-radius: 60px;
   padding: 1rem .5rem;
   position: relative;
   margin-bottom: 1.5rem;
+  ${props => props.themeMode === 'light' && css`
+    background: #EDF2F7;
+  `}
+  ${props => props.themeMode === 'dark' && css`
+    background: #2D3748;
+  `}
 `
 
 const UnderLine = styled(Box)`
@@ -29,13 +36,17 @@ const Triangle = styled.div`
   `}
 `
 
+const selectUserTheme = state => state.user.theme;
+
 export default function LongCard({name, ticker, percentChange, price, color, isPositive}) {
+    const colorTheme = useSelector(selectUserTheme)
+
     return (
-        <Wrapper>
+        <Wrapper themeMode={colorTheme}>
             <Flex paddingX={10}>
                 <Box>
                     <Heading size="lg">{ name && name }</Heading>
-                    <Text fontSize="md" color="#737373">{ticker && ticker }</Text>
+                    <Text fontSize="md" color="gray.400">{ticker && ticker }</Text>
                 </Box>
                 <Spacer />
                 <Flex direction="column">
@@ -48,7 +59,7 @@ export default function LongCard({name, ticker, percentChange, price, color, isP
                         </Heading>
                     </Flex>
                     <Box>
-                        <Text color="#737373" fontSize="md" align="right">
+                        <Text color="gray.400" fontSize="md" align="right">
                             { price && price }
                         </Text>
                     </Box>

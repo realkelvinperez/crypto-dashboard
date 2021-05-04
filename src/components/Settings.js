@@ -1,5 +1,11 @@
-export default function Settings(props) {
+import Toggle from "./Toggle";
+import { Heading } from "@chakra-ui/react";
+
+export default function Settings() {
     return (
-        <div>Settings</div>
+        <>
+            <Heading marginBottom={4}>Settings</Heading>
+            <Toggle />
+        </>
     );
 }

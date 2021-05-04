@@ -1,4 +1,11 @@
-import {updateUserBalance, updateUserAddress, updateUserProvider, updateUserChainId, updateUserSigner} from "../types/user.types";
+import {
+   updateUserBalance,
+   updateUserAddress,
+   updateUserProvider,
+   updateUserChainId,
+   updateUserSigner,
+    updateUserTheme
+} from "../types/user.types";
 
 const initialState = {
    address: undefined,
@@ -7,6 +14,7 @@ const initialState = {
    chainId: undefined,
    txHistory: undefined,
    signer: undefined,
+   theme: "light",
 }
 
 export default function userReducer(state = initialState, action){
@@ -35,6 +43,11 @@ export default function userReducer(state = initialState, action){
          return {
             ...state,
             signer: action.payload
+         }
+      case updateUserTheme:
+         return {
+            ...state,
+            theme: action.payload
          }
       default:
          return state;

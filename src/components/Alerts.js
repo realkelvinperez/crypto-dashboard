@@ -1,5 +1,9 @@
+import {Heading} from "@chakra-ui/react";
+
 export default function Alerts(props) {
     return (
-        <div>Alerts</div>
+        <>
+            <Heading marginBottom={4}>Alerts</Heading>
+        </>
     );
 }

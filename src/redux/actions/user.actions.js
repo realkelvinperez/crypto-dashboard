@@ -1,4 +1,11 @@
-import { updateUserAddress, updateUserBalance, updateUserProvider, updateUserChainId, updateUserSigner } from "../types/user.types";
+import {
+    updateUserAddress,
+    updateUserBalance,
+    updateUserProvider,
+    updateUserChainId,
+    updateUserSigner,
+    updateUserTheme
+} from "../types/user.types";
 
 export function updateAddress(payload){
     return { type: updateUserAddress, payload}
@@ -18,4 +25,8 @@ export function updateChainId(payload){
 
 export function updateSigner(payload){
     return { type: updateUserSigner, payload}
+}
+
+export function updateTheme(payload){
+    return { type: updateUserTheme, payload}
 }

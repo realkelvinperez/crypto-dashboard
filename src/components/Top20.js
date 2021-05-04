@@ -23,10 +23,7 @@ export default function Top20() {
 
     return (
         <Wrapper>
-            <Heading
-                marginBottom="1rem"
-                marginLeft="0.5rem"
-            >
+            <Heading marginBottom={4}>
                 Top 20 Cryptocurrencies
             </Heading>
             {top10.map((x, i) => {
@@ -34,7 +31,7 @@ export default function Top20() {
                 const {price_change_percentage_24h, current_price, name } = x
                 const isPositive = Math.sign(price_change_percentage_24h)  > 0
                 if(isPositive) color = "#25AB4B"
-                else color = "#AB2525"
+                else color = "#E53E3E"
                 return (
                     <LongCard
                         key={i}
