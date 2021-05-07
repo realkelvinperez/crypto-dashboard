@@ -8,6 +8,8 @@ import Top20 from "./components/Top20";
 import Search from "./components/Search";
 import Alerts from "./components/Alerts";
 import Settings from "./components/Settings";
+import Portfolio from "./components/Portfolio";
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -39,19 +41,21 @@ export default function App() {
                      .vc-switch{
                       right: 20px !important;
                       bottom: 130px !important;
-                       cursor: pointer;
+                      cursor: pointer;
+                      background: #48BB78 !important;
                      }
                 `
               }
           />
-              <Header />
 
               <Router>
+                  <Header />
                   <Container as="main">
                      <Switch>
                          <Route path="/search" component={Search} />
                          <Route path="/alerts" component={Alerts} />
                          <Route path="/settings" component={Settings} />
+                         <Route path="/portfolio" exact component={Portfolio} />
                          <Route path="/" exact component={Top20} />
                      </Switch>
                   </Container>

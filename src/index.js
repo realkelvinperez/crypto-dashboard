@@ -10,6 +10,7 @@ import {logger} from "redux-logger/src";
 import theme from "./theme";
 
 const store = createStore(rootReducer, applyMiddleware(logger))
+window.store = store
 
 ReactDOM.render(
   <React.StrictMode>

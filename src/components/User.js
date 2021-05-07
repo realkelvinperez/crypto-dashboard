@@ -5,7 +5,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateProvider } from "../redux/actions/user.actions";
 import { ethers } from "ethers";
 import web3 from 'web3'
-import { updateAddress, updateChainId, updateBalance, updateSigner } from "../redux/actions/user.actions";
+import { useHistory } from "react-router-dom"
+import {
+    updateAddress,
+    updateChainId,
+    updateBalance,
+    updateSigner
+} from "../redux/actions/user.actions";
 
 const Wrap = styled.div`
   display: flex;
@@ -18,18 +24,22 @@ const selectAddress = state => state.user.address
 
 export default function User() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const [isLoading, setIsLoading] = useState(false)
+    const [isUserConnected, setUserConnected] = useState(false)
     const address = useSelector(selectAddress)
 
-    const handleClick = async () => {
-        if(typeof window?.ethereum !== "undefined") {
-            setIsLoading(true)
+    const handleClick = async (history) => {
+        if(isUserConnected) return history.push('/portfolio')
+        if(typeof window.ethereum !== "undefined" && !isUserConnected) {
 
+            setIsLoading(true)
+            const { ethereum } = window
             const { utils } = web3
 
-            await window.ethereum.request({method: "eth_requestAccounts"})
+            await ethereum.request({ method: "eth_requestAccounts" })
 
-            const provider = new ethers.providers.Web3Provider(window.ethereum)
+            const provider = new ethers.providers.Web3Provider(ethereum)
             dispatch(updateProvider(provider))
 
             const signer = provider.getSigner(0)
@@ -46,6 +56,9 @@ export default function User() {
             dispatch(updateAddress(signerAddress))
 
             console.log({signerAddress, floatBalance})
+            history.push('/portfolio')
+            // change router to portfolio and display all the users assets
+            setUserConnected(true)
             setIsLoading(false)
         }
 
@@ -60,7 +73,7 @@ export default function User() {
 
     return (
         <Wrap>
-            <Button isLoading={isLoading} borderRadius="4rem" onClick={handleClick}>
+            <Button isLoading={isLoading} borderRadius="4rem" onClick={() => handleClick(history)}>
                 {!address ? 'Connect Wallet' : truckAddress(address)}
             </Button>
         </Wrap>

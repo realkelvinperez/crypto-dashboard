@@ -15,7 +15,7 @@ export default function Header() {
             <Box>
                 <Heading
                     size='lg'
-                    color="#21A142"
+                    color="green.400"
                 >
                     ViViFi.Capital
                 </Heading>

@@ -1,4 +1,12 @@
-import {Box, Heading, Text, Flex, Spacer, useColorMode} from "@chakra-ui/react";
+import {
+    Box,
+    Heading,
+    Text,
+    Flex,
+    Spacer,
+    useColorMode,
+    Stack
+} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { TriangleFill } from "@emotion-icons/bootstrap"
 import { css } from "@emotion/react";
@@ -30,37 +38,39 @@ const UnderLine = styled(Box)`
 `
 
 const Triangle = styled.div`
-  display: flex;
   ${props => !props.isPositive && css`
     transform: rotate(180deg);
   `}
 `
 
-export default function LongCard({name, ticker, percentChange, price, color, isPositive}) {
+export default function TokenCard({ticker, price, color, isPositive, bnbValue, dollarValue}) {
+
     const { colorMode } = useColorMode()
+
     return (
         <Wrapper themeMode={colorMode}>
             <Flex paddingX={10}>
                 <Box>
-                    <Heading size="lg">{ name && name }</Heading>
-                    <Text fontSize="md" color="gray.400">{ticker && ticker }</Text>
+                    <Heading size="lg">{ ticker || "BLAST"  }</Heading>
+                    <Text fontSize="md" color="gray.400">{ bnbValue || "0.00 BNB" } </Text>
                 </Box>
                 <Spacer />
-                <Flex direction="column">
-                    <Flex align="center" justify="center">
-                        <Triangle isPositive={isPositive}>
-                            <TriangleFill size={15} color={color} />
-                        </Triangle>
-                        <Heading color={color} align="right" size="lg" marginLeft={2}>
-                            {percentChange && percentChange + "%"}
-                        </Heading>
-                    </Flex>
+                <Stack>
                     <Box>
-                        <Text color="gray.400" fontSize="md" align="right">
-                            { price && price }
-                        </Text>
+                        <Heading color={color} align="right" size="md" marginLeft={2}>
+                            { dollarValue || "$0.00" }
+                        </Heading>
                     </Box>
-                </Flex>
+                    <Flex align="center" justify="flex-end">
+                        <Triangle isPositive={isPositive}>
+                            <TriangleFill color={color} />
+                        </Triangle>
+                        <Text color="gray.400" fontSize="md" align="right">
+                            {/*{percentChange || "2,234%" }*/}
+                            { price || "$0.00000024223" }
+                        </Text>
+                    </Flex>
+                </Stack>
             </Flex>
             <UnderLine color={color} />
         </Wrapper>
