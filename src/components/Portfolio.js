@@ -13,10 +13,10 @@ export default function Portfolio() {
     const signer = useSelector(getSigner)
     const balance = useSelector(getBalance)
     // const chainId = useSelector(getChainId)
-    const [rawTokenBalances, setRawTokenBalances] = useState(undefined)
+    // const [rawTokenBalances, setRawTokenBalances] = useState(undefined)
     const [tokenBalances, setTokenBalances] = useState(undefined)
     const [dollars, setDollars] = useState(undefined)
-
+/*
     const getTokenBalances = async (rawTokenData) => {
         const tokenBalanceAddresses = rawTokenData.map(x => {
             return x.currency.address
@@ -67,7 +67,7 @@ export default function Portfolio() {
             debugger;
         console.log(data)
     }
-
+*/
     // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(async () => {
         if(signer){
@@ -111,9 +111,10 @@ export default function Portfolio() {
                 }
             })
             const { balances } = rawTokenBalances.data.data.ethereum.address[0]
-            setRawTokenBalances(balances)
+            // setRawTokenBalances(balances)
 
             // const finalBalances = await getTokenBalances(balances, WBNB)
+            // console.log(getTokenBalances())
             setTokenBalances(balances)
         }
 
