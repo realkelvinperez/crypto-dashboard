@@ -42,7 +42,7 @@ export default function App() {
                       right: 20px !important;
                       bottom: 130px !important;
                       cursor: pointer;
-                      background: #48BB78 !important;
+                      background: #AA32FF !important;
                      }
                 `
               }

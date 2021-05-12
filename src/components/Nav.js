@@ -9,16 +9,22 @@ const HeaderWrap = styled.div`
   padding: 1rem;
 `
 
+const Title = styled(Heading)`
+  background: rgb(252,0,255);
+  background: linear-gradient(9deg, rgba(252,0,255,1) 0%, rgba(0,219,222,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`
+
 export default function Header() {
     return (
         <HeaderWrap>
             <Box>
-                <Heading
+                <Title
                     size='lg'
-                    color="green.400"
                 >
-                    ViViFi.Capital
-                </Heading>
+                    Twerk Finance
+                </Title>
             </Box>
             <User />
         </HeaderWrap>
