@@ -20,6 +20,10 @@ const Wrap = styled.div`
   margin: 1rem 0;
 `
 
+const UserButton = styled(Button)`
+  border: solid #CB1AED 2px;
+`
+
 const selectAddress = state => state.user.address
 
 export default function User() {
@@ -73,9 +77,9 @@ export default function User() {
 
     return (
         <Wrap>
-            <Button isLoading={isLoading} borderRadius="4rem" onClick={() => handleClick(history)}>
+            <UserButton isLoading={isLoading} borderRadius="4rem" onClick={() => handleClick(history)}>
                 {!address ? 'Connect Wallet' : truckAddress(address)}
-            </Button>
+            </UserButton>
         </Wrap>
     );
 }
