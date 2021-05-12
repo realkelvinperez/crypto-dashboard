@@ -18,6 +18,7 @@ const IconsWrap = styled.div`
   justify-content: space-around;
   padding: 1rem;
   border-radius: 60px;
+  border: solid #CB1AED 2px;
   
   ${props => props.themeMode === 'light' && css`
     background: #EDF2F7;
