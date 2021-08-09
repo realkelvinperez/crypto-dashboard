@@ -10,8 +10,7 @@ const HeaderWrap = styled.div`
 `
 
 const Title = styled(Heading)`
-  background: rgb(252,0,255);
-  background: linear-gradient(9deg, rgba(252,0,255,1) 0%, rgba(0,219,222,1) 100%);
+    background: white;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `
@@ -23,7 +22,7 @@ export default function Header() {
                 <Title
                     size='lg'
                 >
-                    Twerk Finance
+                    Crypto Portfolio
                 </Title>
             </Box>
             <User />

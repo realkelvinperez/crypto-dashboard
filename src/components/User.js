@@ -21,7 +21,6 @@ const Wrap = styled.div`
 `
 
 const UserButton = styled(Button)`
-  border: solid #CB1AED 2px;
 `
 
 const selectAddress = state => state.user.address
